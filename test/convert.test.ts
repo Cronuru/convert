@@ -6,7 +6,7 @@ describe("convert", () => {
     const r = convert("0 9 * * 1", "unix", "quartz");
     expect(r.ok).toBe(true);
     // minute0 hour9, dow Mon: unix 1 -> quartz 2, dom becomes ? since dow is set
-    expect(r.expression).toBe("0 0 9 ? * 2 *");
+    expect(r.expression).toBe("0 0 9 ? * 2");
   });
 
   it("quartz -> unix is the inverse (drops seconds/year, renumbers dow)", () => {

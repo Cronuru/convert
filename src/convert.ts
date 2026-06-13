@@ -170,8 +170,13 @@ export function convert(expression: string, from: DialectSlug, to: DialectSlug):
     );
   }
 
-  // Emit in target's field order.
-  const targetExpression = tgtMeta.fields.map((f) => norm[f as FieldKey] ?? "*").join(" ");
+  // Emit in target's field order. Quartz's year field is optional — omit it
+  // when unspecified so we produce the idiomatic 6-field form.
+  let outFields = tgtMeta.fields;
+  if (to === "quartz" && (norm.year === "*" || norm.year === undefined)) {
+    outFields = outFields.filter((f) => f !== "year");
+  }
+  const targetExpression = outFields.map((f) => norm[f as FieldKey] ?? "*").join(" ");
 
   return {
     expression: targetExpression,

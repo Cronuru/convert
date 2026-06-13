@@ -27,7 +27,7 @@ No runtime dependencies. ESM + CJS. Typed.
 import { convert, convertToAll, validate } from "@cronuru/convert";
 
 convert("0 9 * * 1", "unix", "quartz");
-// { ok: true, expression: "0 0 9 ? * 2 *", warnings: [], target: "quartz" }
+// { ok: true, expression: "0 0 9 ? * 2", warnings: [], target: "quartz" }
 
 // Day-of-week is renumbered (Mon: 1 → 2) and day-of-month becomes "?"
 // because Quartz requires exactly one of the two day fields to be "?".
@@ -49,11 +49,11 @@ GitHub Actions' 5-minute floor, unsupported special characters), and `ok` is
 
 ```bash
 npx @cronuru/convert "0 9 * * 1" --from unix --to quartz
-# 0 0 9 ? * 2 *
+# 0 0 9 ? * 2
 
 npx @cronuru/convert "*/15 * * * *" --from unix --to all
 # unix            */15 * * * *
-# quartz          0 */15 * * * ? *
+# quartz          0 */15 * * * ?
 # kubernetes      */15 * * * *
 # eventbridge     */15 * * * ? *
 # spring          0 */15 * * * *
