@@ -1,5 +1,7 @@
 # @cronuru/convert
 
+[![CI](https://github.com/cronuru/convert/actions/workflows/ci.yml/badge.svg)](https://github.com/cronuru/convert/actions/workflows/ci.yml) [![npm](https://img.shields.io/npm/v/@cronuru/convert.svg)](https://www.npmjs.com/package/@cronuru/convert)
+
 **Zero-dependency cron expression conversion and validation** across every
 major scheduler dialect — Unix, Quartz, Kubernetes, AWS EventBridge, Spring,
 and GitHub Actions.
