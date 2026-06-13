@@ -34,7 +34,7 @@
     }
   },
   "bin": {
-    "cron-convert": "./dist/cli.cjs"
+    "cron-convert": "dist/cli.cjs"
   },
   "files": [
     "dist"
