@@ -1,0 +1,61 @@
+{
+  "name": "@cronuru/convert",
+  "version": "0.1.0",
+  "description": "Zero-dependency cron expression conversion and validation across Unix, Quartz, Kubernetes, AWS EventBridge, Spring, and GitHub Actions.",
+  "keywords": [
+    "cron",
+    "crontab",
+    "cron-expression",
+    "quartz",
+    "kubernetes",
+    "eventbridge",
+    "spring",
+    "github-actions",
+    "converter",
+    "scheduler"
+  ],
+  "license": "MIT",
+  "author": "Cronuru (https://cronuru.com)",
+  "homepage": "https://cronuru.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cronuru/convert.git"
+  },
+  "bugs": "https://github.com/cronuru/convert/issues",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "bin": {
+    "cron-convert": "./dist/cli.cjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.21",
+    "tsup": "^8.3.0",
+    "typescript": "^5.7.2",
+    "vitest": "^3.2.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
